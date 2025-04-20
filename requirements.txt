@@ -1,7 +1,7 @@
 streamlit
 yfinance
 pandas-ta
-mplfinance
 plotly
 pandas
 numpy
+setuptools
