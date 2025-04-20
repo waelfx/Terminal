@@ -24,10 +24,12 @@ try:
     if data.empty:
         st.error("No data found for this symbol.")
     else:
-        # Display latest price
+        # Display latest price and volume with corrected formatting
         latest_data = data.tail(1)
-        st.write(f"Latest Price for {symbol}: {latest_data['Close'].iloc[0]:.2f}")
-        st.write(f"Volume: {latest_data['Volume'].iloc[0]:,.0f}")
+        latest_price = float(latest_data['Close'].iloc[0])  # Convert to float
+        latest_volume = float(latest_data['Volume'].iloc[0])  # Convert to float
+        st.write(f"Latest Price for {symbol}: {latest_price:.2f}")
+        st.write(f"Volume: {latest_volume:,.0f}")
 
         # Calculate indicators
         data['RSI'] = ta.rsi(data['Close'], length=rsi_period)
